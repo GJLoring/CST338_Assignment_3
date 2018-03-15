@@ -13,7 +13,7 @@ public class assignment3
 {  
    public static void main(String[] args)
    {
- 
+      // Test Of Card Class
       System.out.println("Card Class Tests\n");
       
       //Instantiate three cards, two legally, and one illegally
@@ -36,6 +36,36 @@ public class assignment3
       System.out.println(card1.toString());
       System.out.println(card2.toString());
       System.out.println(card3.toString());
+
+
+
+      // Phase II Test of Hand Class
+      Hand playerHand = new Hand();
+      
+      // TODO Put me in a loop to max allowable cards playerHand.MAX_CARDS
+      int x=0;
+      int s=0;
+      int v=0;
+      char[] cardValues = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+      do
+      {
+         playerHand.takeCard(new Card(cardValues[v], Card.Suit.spades));
+         playerHand.takeCard(new Card(cardValues[v], Card.Suit.diamonds));
+         playerHand.takeCard(new Card(cardValues[v], Card.Suit.clubs));
+         playerHand.takeCard(new Card(cardValues[v], Card.Suit.hearts));
+         if(v < cardValues.length-1)
+            v = v + 1;
+         else
+            v = 0;
+         x = x + 1;
+      }while( x < playerHand.MAX_CARDS/4);
+
+      // Use To String to display hand
+      playerHand.toString();
+      
+      // Phase III Test of Deck Class
+      
+      // Integration Demonstration
 
    }
 }      
@@ -157,6 +187,9 @@ class Card
    }
 }
 
+
+
+
 /********************* OUTPUT CARD CLASS *********************
  
 Card Class Tests
@@ -171,3 +204,51 @@ J of clubs
  
  
  ******************** END OUTPUT CARD CLASS *******************/
+
+
+/*------------------------------------------------------------------------------------ 
+ * PHASE II: The Hand Class
+ * 
+ *------------------------------------------------------------------------------------*/
+class Hand
+{
+   public Integer MAX_CARDS = 50;
+   
+   // Place holder
+   public Hand()
+   {
+      return;
+   }
+   
+   // Place holder
+   public boolean takeCard(Card card)
+   {
+      return true;
+   }
+   
+   // Place holder
+   public String toString()
+   {
+      return "TODO";
+   }
+}
+/********************* OUTPUT HAND CLASS *********************
+ 
+Hand Class Tests
+
+ 
+******************** END OUTPUT HAND CLASS *******************/
+
+/*------------------------------------------------------------------------------------ 
+ * PHASE III: The Deck Class
+ * 
+ *------------------------------------------------------------------------------------*/
+class Deck
+{
+}
+/********************* OUTPUT Deck CLASS *********************
+ 
+Deck Class Tests
+
+ 
+******************** END OUTPUT Deck CLASS *******************/
