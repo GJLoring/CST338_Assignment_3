@@ -38,32 +38,43 @@ public class assignment3
       System.out.println(card3.toString());
 
 
-
       // Phase II Test of Hand Class
       Hand playerHand = new Hand();
       
-      // TODO Put me in a loop to max allowable cards playerHand.MAX_CARDS
-      int x=0;
+      // Loop to max allowable cards playerHand.MAX_CARDS
       int s=0;
       int v=0;
       char[] cardValues = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
       do
       {
-         playerHand.takeCard(new Card(cardValues[v], Card.Suit.spades));
-         playerHand.takeCard(new Card(cardValues[v], Card.Suit.diamonds));
-         playerHand.takeCard(new Card(cardValues[v], Card.Suit.clubs));
-         playerHand.takeCard(new Card(cardValues[v], Card.Suit.hearts));
-         if(v < cardValues.length-1)
-            v = v + 1;
-         else
+         playerHand.takeCard(new Card(cardValues[v++], Card.Suit.values()[s]));
+         if(v == cardValues.length-1){
             v = 0;
-         x = x + 1;
-      }while( x < playerHand.MAX_CARDS/4);
+            s = s + 1;
+         }
+      }while( s * cardValues.length + v < playerHand.MAX_CARDS);
 
       // Use To String to display hand
-      playerHand.toString();
+      System.out.println(playerHand.toString());
+      
+      playerHand.resetHand();
+      Card cardZeroInspect = playerHand.inspectCard(0);      
+      Card cardZeroPlay = playerHand.playCard();
       
       // Phase III Test of Deck Class
+      Deck playerDeck = new Deck(2); 
+      
+      //Deal all the cards in a loop until the deck is empty (dealt directly to the display/screen, not to any Hand objects just yet).  
+      //Display each card as it comes off the deck.  
+      
+      //Next, reset the deck by initializing it again (to the same two packs).  
+      
+      //Shuffle the deck this time, 
+      
+      //and re-deal to the screen in a loop again. 
+      //Notice that the cards are now coming off in a random order.
+
+      //Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.
       
       // Integration Demonstration
 
@@ -212,25 +223,51 @@ J of clubs
  *------------------------------------------------------------------------------------*/
 class Hand
 {
-   public Integer MAX_CARDS = 50;
+   public Integer MAX_CARDS = 52;
    
    // Place holder
    public Hand()
    {
+      System.out.println("TODO, Hand class Hand");
       return;
    }
    
    // Place holder
    public boolean takeCard(Card card)
    {
+      System.out.println("TODO, Hand class takeCard");
       return true;
    }
    
    // Place holder
    public String toString()
    {
-      return "TODO";
+      System.out.println("TODO, Hand class toString ");
+      return "";
    }
+
+   // Place holder
+   void resetHand(){
+      System.out.println("TODO, Hand class resetHand ");
+      return;
+   }
+   
+   // Place holder 
+   Card playCard() 
+   {
+      Card placeHolderTODODelMe = new Card();
+      System.out.println("TODO, Hand class playCard ");
+      return placeHolderTODODelMe;
+   }
+      
+   // Place holder 
+   Card inspectCard(int k)
+   {
+      Card placeHolderTODODelMe = new Card();
+      System.out.println("TODO, Hand class inspectCard ");
+      return placeHolderTODODelMe;
+   }
+
 }
 /********************* OUTPUT HAND CLASS *********************
  
@@ -245,7 +282,61 @@ Hand Class Tests
  *------------------------------------------------------------------------------------*/
 class Deck
 {
+   
+   // Place holder 
+   Deck(int numPacks)
+   {
+      System.out.println("TODO, Deck class numPacks");
+      return;
+   } 
+   
+   // Place holder 
+   public void init(int numPacks)
+   {
+      System.out.println("TODO, Deck class init");
+      return;
+      
+   } 
+   
+   // Place holder 
+   public void shuffle()
+   {
+      System.out.println("TODO, Deck class shuffle");
+      return;
+   } 
+   
+   // Place holder 
+   public Card dealCard()
+   {
+      Card placeHolderTODODelMe = new Card();
+      System.out.println("TODO, Deck class dealCard ");
+      return placeHolderTODODelMe;
+   }
+   
+   // Place holder 
+   public int topCard ()
+   {
+      System.out.println("TODO, Deck class topCard ");
+      return 1;
+   }
+   
+   // Place holder 
+   public Card inspectCard(int k) 
+   {
+      Card placeHolderTODODelMe = new Card();
+      System.out.println("TODO, Deck class inspectCard ");
+      return placeHolderTODODelMe;
+   }
+   
+   // Place holder 
+   private static void allocateMasterPack()
+   {
+      System.out.println("TODO, Deck class allocateMasterPack ");
+      return;
+   }
 }
+
+
 /********************* OUTPUT Deck CLASS *********************
  
 Deck Class Tests
