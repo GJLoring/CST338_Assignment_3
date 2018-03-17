@@ -302,64 +302,363 @@ Hand Class Tests
  *------------------------------------------------------------------------------------*/
 class Deck
 {
+   //Deck capacity set to six packs by 52 cards per pack
+   public static final int MAX_CARDS = 6 * 52;
    
-   // Place holder 
-   Deck(int numPacks)
+   //Private static member data
+   private static Card[] masterPack;
+   private static boolean isExecuted;
+   
+   //Private member data
+   private Card[] cards;
+   private int topCard;
+   private int numPacks;
+   
+   //Constructor to initialize masterpack
+   public Deck(int numPacks)
    {
-      System.out.println("TODO, Deck class numPacks");
-      return;
+      allocateMasterPack();
+      this.cards = masterPack;
+      init(numPacks);
    } 
    
-   // Place holder 
+   //if no parameters are passed 1 pack is assumed
+   public Deck()
+   {
+      this(1);
+   }
+   
+   // 
    public void init(int numPacks)
    {
-      System.out.println("TODO, Deck class init");
-      return;
-      
+      this.numPacks = numPacks;
+      getTopCard();
+      if(topCard <= MAX_CARDS && numPacks != 0)
+      {
+         cards = new Card[topCard];
+         for(int k = 0; k < cards.length; k++)
+         {
+            cards[k] = new Card();
+            for(int k1 =0; k1 < numPacks; k1++)
+            {
+               for(int i = 52 * k1, j = 0; i < 52 * k1 + 52; i++, j++)
+               {
+                  cards[i] = masterPack[j];
+               }
+            }
+         }
+      }
+      else
+      {
+         return;
+      }
    } 
    
-   // Place holder 
+   // Used to shuffle the cards[] 
    public void shuffle()
    {
-      System.out.println("TODO, Deck class shuffle");
-      return;
+      Random rand = new Random();
+      for(int k = cards.length - 1; k > 0; k--)
+      {
+         int randomIndex = rand.nextInt(k + 1);
+         Card tempCard = cards[randomIndex];
+         cards[randomIndex] = cards[k];
+         cards[k] = tempCard;
+      }
    } 
    
-   // Place holder 
+   // Used to deal cards 
    public Card dealCard()
    {
-      Card placeHolderTODODelMe = new Card();
-      System.out.println("TODO, Deck class dealCard ");
-      return placeHolderTODODelMe;
+      if(topCard == 0)
+      {
+         return null;
+      }
+      Card returnCard = cards[topCard -1];
+      cards[topCard -1] = null;
+      topCard--;
+      return returnCard;
    }
    
-   // Place holder 
-   public int topCard ()
+   // Accessor returns the value of numPacks * 52 using topCard 
+   public int getTopCard ()
    {
-      System.out.println("TODO, Deck class topCard ");
-      return 1;
+      topCard = numPacks * 52;
+      return topCard;
    }
    
-   // Place holder 
+   // Accessor inspects card and returns them or returns illegal message
    public Card inspectCard(int k) 
    {
-      Card placeHolderTODODelMe = new Card();
-      System.out.println("TODO, Deck class inspectCard ");
-      return placeHolderTODODelMe;
+      if(topCard == 0 || k < 0 || k > topCard)
+      {
+         return new Card('F', Card.Suit.spades);
+      }
+      else
+      {
+         return cards[k];
+      }
    }
    
    // Place holder 
    private static void allocateMasterPack()
    {
-      System.out.println("TODO, Deck class allocateMasterPack ");
-      return;
+      if(!isExecuted)
+      {
+         masterPack = new Card[52];
+         Card.Suit suit;
+         int k;
+         int j;
+         char value;
+         
+         for( k = 0; k < masterPack.length; k++)
+         {
+            masterPack[k] = new Card();
+         }
+         for(k = 0; k < 4; k++)
+         {
+            switch(k)
+            {
+               case 0: suit = Card.Suit.clubs;
+                       break;
+               case 1: suit = Card.Suit.diamonds;
+                       break;
+               case 2: suit = Card.Suit.hearts;
+                       break;
+               case 3: suit = Card.Suit.spades;
+                       break;
+               default: suit = Card.Suit.spades;
+                       break;
+            }
+            masterPack[13 * k].set('A', suit);
+            for(value = '2', j = 1; value <= '9'; value++, j++)
+            {
+               masterPack[13 * k + j].set(value, suit);
+               masterPack[13 * k + 9].set('T', suit);
+               masterPack[13 * k + 10].set('J', suit);
+               masterPack[13 * k + 11].set('Q', suit);
+               masterPack[13 * k + 12].set('K', suit);
+            }
+         }
+         isExecuted = true;
+      }
+      else
+      {
+         return;
+      }
    }
 }
 
 
 /********************* OUTPUT Deck CLASS *********************
  
-Deck Class Tests
-
+K of spades
+Q of spades
+J of spades
+T of spades
+9 of spades
+8 of spades
+7 of spades
+6 of spades
+5 of spades
+4 of spades
+3 of spades
+2 of spades
+A of spades
+K of hearts
+Q of hearts
+J of hearts
+T of hearts
+9 of hearts
+8 of hearts
+7 of hearts
+6 of hearts
+5 of hearts
+4 of hearts
+3 of hearts
+2 of hearts
+A of hearts
+K of diamonds
+Q of diamonds
+J of diamonds
+T of diamonds
+9 of diamonds
+8 of diamonds
+7 of diamonds
+6 of diamonds
+5 of diamonds
+4 of diamonds
+3 of diamonds
+2 of diamonds
+A of diamonds
+K of clubs
+Q of clubs
+J of clubs
+T of clubs
+9 of clubs
+8 of clubs
+7 of clubs
+6 of clubs
+5 of clubs
+4 of clubs
+3 of clubs
+2 of clubs
+A of clubs
+K of spades
+Q of spades
+J of spades
+T of spades
+9 of spades
+8 of spades
+7 of spades
+6 of spades
+5 of spades
+4 of spades
+3 of spades
+2 of spades
+A of spades
+K of hearts
+Q of hearts
+J of hearts
+T of hearts
+9 of hearts
+8 of hearts
+7 of hearts
+6 of hearts
+5 of hearts
+4 of hearts
+3 of hearts
+2 of hearts
+A of hearts
+K of diamonds
+Q of diamonds
+J of diamonds
+T of diamonds
+9 of diamonds
+8 of diamonds
+7 of diamonds
+6 of diamonds
+5 of diamonds
+4 of diamonds
+3 of diamonds
+2 of diamonds
+A of diamonds
+K of clubs
+Q of clubs
+J of clubs
+T of clubs
+9 of clubs
+8 of clubs
+7 of clubs
+6 of clubs
+5 of clubs
+4 of clubs
+3 of clubs
+2 of clubs
+A of clubs
+8 of diamonds
+8 of spades
+9 of hearts
+5 of diamonds
+8 of diamonds
+5 of hearts
+7 of diamonds
+9 of clubs
+T of clubs
+5 of diamonds
+3 of diamonds
+5 of spades
+7 of clubs
+J of spades
+3 of spades
+Q of spades
+3 of clubs
+5 of clubs
+6 of diamonds
+4 of diamonds
+K of spades
+8 of clubs
+T of hearts
+K of hearts
+K of hearts
+3 of hearts
+5 of spades
+J of diamonds
+Q of diamonds
+2 of hearts
+J of clubs
+6 of clubs
+8 of hearts
+6 of spades
+6 of hearts
+K of diamonds
+4 of spades
+T of spades
+J of clubs
+2 of diamonds
+9 of spades
+6 of hearts
+T of hearts
+9 of diamonds
+7 of hearts
+8 of spades
+A of hearts
+T of clubs
+4 of spades
+Q of hearts
+2 of spades
+4 of hearts
+A of diamonds
+J of spades
+A of clubs
+8 of clubs
+T of spades
+2 of spades
+J of hearts
+5 of hearts
+9 of spades
+J of hearts
+Q of spades
+3 of clubs
+7 of spades
+6 of clubs
+Q of clubs
+K of clubs
+7 of spades
+K of clubs
+2 of clubs
+5 of clubs
+A of spades
+3 of spades
+9 of hearts
+T of diamonds
+4 of diamonds
+3 of diamonds
+8 of hearts
+K of diamonds
+7 of hearts
+Q of hearts
+2 of diamonds
+2 of hearts
+A of diamonds
+6 of spades
+9 of clubs
+K of spades
+4 of hearts
+2 of clubs
+Q of diamonds
+6 of diamonds
+7 of diamonds
+A of hearts
+A of clubs
+4 of clubs
+7 of clubs
+Q of clubs
+4 of clubs
+9 of diamonds
+T of diamonds
+A of spades
+3 of hearts
+J of diamonds
  
 ******************** END OUTPUT Deck CLASS *******************/
