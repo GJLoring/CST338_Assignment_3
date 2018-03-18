@@ -60,6 +60,16 @@ public class assignment3
       //Reset hand and inspect it
       playerHand.resetHand();
       Card cardZeroInspect;
+      suitCount=0;
+      valueCount=0;
+      do
+      {
+         playerHand.takeCard(new Card(cardValues[valueCount++], Card.Suit.values()[suitCount]));
+         if(valueCount == cardValues.length){
+            valueCount = 0;
+            suitCount++;
+         }
+      }while( suitCount * cardValues.length + valueCount < playerHand.MAX_CARDS-1);
       for(int i =0; i < playerHand.MAX_CARDS;i++)
          cardZeroInspect = playerHand.inspectCard(i);   
       
@@ -252,7 +262,7 @@ J of clubs
 class Hand
 {
    public static final int MAX_CARDS = 52;
-   private Card[] myCards;
+   private Card[] myCards = new Card[MAX_CARDS];
    private int numCards = 0;
 
    // Default constructor
@@ -269,13 +279,16 @@ class Hand
    // Remove all cards from the hand
    void resetHand()
    {
-      myCards = new Card[0];
+      myCards = new Card[MAX_CARDS];
+      numCards = 0;
       return;
    }
 
    // Adds a card to the next available position in the myCards array
    public boolean takeCard(Card card)
    {
+      if(numCards == MAX_CARDS)
+         return false;
       myCards[numCards] = card;
       numCards++;
       return true;
@@ -312,10 +325,18 @@ class Hand
    // Inspect a single card (Need help with this method)
    Card inspectCard(int k)
    {
-      Card placeHolderTODODelMe = new Card();
-      System.out.println("TODO, Hand class inspectCard ");
-      return placeHolderTODODelMe;
+      if(k > numCards)
+      {
+         Card x = new Card();
+         x.set('F', Card.Suit.clubs);
+         return x;
+      }
+      else
+      {
+         return myCards[k];
+      }
    }
+   
 
 }
 /********************* OUTPUT HAND CLASS *********************
