@@ -66,36 +66,39 @@ public class assignment3
       
       //Deal all the cards in a loop until the deck is empty (dealt directly to the display/screen, not to any Hand objects just yet).  
       //Display each card as it comes off the deck. 
-      do{
-         Card deltCard = playerDeck.dealCard();
+      Card deltCard = playerDeck.dealCard();
+      while(deltCard != null){
          System.out.println(deltCard.toString());
-      }while(1==0); // TODO Figure out loop exit condition
+         deltCard = playerDeck.dealCard();
+      };
       
       //Next, reset the deck by initializing it again (to the same two packs).  
       playerDeck.init(2);
       
       //Shuffle the deck this time, 
       playerDeck.shuffle();
+      
+      
       //and re-deal to the screen in a loop again. 
-      do{
-         Card deltCard = playerDeck.dealCard();
+      while(deltCard != null){
          System.out.println(deltCard.toString());
-      }while(1==0); // TODO Figure out loop exit condition
+         deltCard = playerDeck.dealCard();
+      };
       
       //Notice that the cards are now coming off in a random order.
 
       //Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.
       Deck singlepackDeck = new Deck(1); 
-      
-      do{
-         Card deltCard = singlepackDeck.dealCard();
+      while(deltCard != null){
          System.out.println(deltCard.toString());
-      }while(1==0); // TODO Figure out loop exit condition
+         deltCard = singlepackDeck.dealCard();
+      };
       singlepackDeck.init(1);
-      do{
-         Card deltCard = singlepackDeck.dealCard();
+      
+      while(deltCard != null){
          System.out.println(deltCard.toString());
-      }while(1==0); // TODO Figure out loop exit condition
+         deltCard = singlepackDeck.dealCard();
+      }; 
       // Integration Demonstration
 
    }
