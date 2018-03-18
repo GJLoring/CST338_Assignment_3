@@ -42,17 +42,17 @@ public class assignment3
       Hand playerHand = new Hand();
       
       // Loop to max allowable cards playerHand.MAX_CARDS
-      int s=0;
-      int v=0;
+      int suitCount=0;
+      int valueCount=0;
       char[] cardValues = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
       do
       {
-         playerHand.takeCard(new Card(cardValues[v++], Card.Suit.values()[s]));
-         if(v == cardValues.length-1){
-            v = 0;
-            s = s + 1;
+         playerHand.takeCard(new Card(cardValues[valueCount++], Card.Suit.values()[suitCount]));
+         if(valueCount == cardValues.length){
+            valueCount = 0;
+            suitCount++;
          }
-      }while( s * cardValues.length + v < playerHand.MAX_CARDS);
+      }while( suitCount * cardValues.length + valueCount < playerHand.MAX_CARDS);
 
       // Use To String to display hand
       System.out.println(playerHand.toString());
@@ -258,7 +258,7 @@ class Hand
    // Place holder
    public boolean takeCard(Card card)
    {
-      System.out.println("TODO, Hand class takeCard");
+      System.out.println("TODO, Hand class takeCard: " + card.toString());
       return true;
    }
    
