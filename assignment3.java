@@ -309,7 +309,7 @@ class Hand
       return numCards;
    }
 
-   // Inspect a single card
+   // Inspect a single card (Need help with this method)
    Card inspectCard(int k)
    {
       Card placeHolderTODODelMe = new Card();
