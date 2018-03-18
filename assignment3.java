@@ -57,9 +57,15 @@ public class assignment3
       // Use To String to display hand
       System.out.println(playerHand.toString());
       
+      //Reset hand and inspect it
       playerHand.resetHand();
-      Card cardZeroInspect = playerHand.inspectCard(0);      
+      Card cardZeroInspect;
+      for(int i =0; i < playerHand.MAX_CARDS;i++)
+         cardZeroInspect = playerHand.inspectCard(i);   
+      
+      // Play a card   
       Card cardZeroPlay = playerHand.playCard();
+      System.out.println("Play Card: " + cardZeroPlay.toString());
       
       // Phase III Test of Deck Class
       Deck playerDeck = new Deck(2); 
@@ -287,7 +293,7 @@ class Hand
    Card inspectCard(int k)
    {
       Card placeHolderTODODelMe = new Card();
-      System.out.println("TODO, Hand class inspectCard ");
+      System.out.println("TODO, Hand class inspectCard: " + k);
       return placeHolderTODODelMe;
    }
 
