@@ -245,55 +245,75 @@ J of clubs
  
  ******************** END OUTPUT CARD CLASS *******************/
 
-
 /*------------------------------------------------------------------------------------ 
  * PHASE II: The Hand Class
  * 
  *------------------------------------------------------------------------------------*/
 class Hand
 {
-   public Integer MAX_CARDS = 52;
-   
-   // Place holder
+   public static final int MAX_CARDS = 52;
+   private Card[] myCards;
+   private int numCards = 0;
+
+   // Default constructor
    public Hand()
    {
-      System.out.println("TODO, Hand class Hand");
+      Deck deck = new Deck();
+      myCards = new Card[MAX_CARDS];
+      for (int i = 1; i <= MAX_CARDS; i++)
+      {
+         takeCard(deck.dealCard());
+      }
+   }
+
+   // Remove all cards from the hand
+   void resetHand()
+   {
+      myCards = new Card[0];
       return;
    }
-   
-   // Place holder
+
+   // Adds a card to the next available position in the myCards array
    public boolean takeCard(Card card)
    {
-      System.out.println("TODO, Hand class takeCard: " + card.toString());
+      myCards[numCards] = card;
+      numCards++;
       return true;
    }
-   
-   // Place holder
+
+   // Returns and removes the card in the top occupied position of the myCards
+   // array
+   public Card playCard()
+   {
+      Card handTopCard = new Card();
+      handTopCard = myCards[numCards - 1];
+      System.out.println("Playing " + handTopCard);
+      myCards[numCards - 1] = null;
+      numCards--;
+      return handTopCard;
+   }
+
+   // Prints out the array of cards.
    public String toString()
    {
-      System.out.println("TODO, Hand class toString ");
+      System.out.print("Hand = ( ");
+      for (int index = 0; index <= numCards - 1; index++)
+         System.out.print(myCards[index] + ", ");
+      System.out.println(")");
       return "";
    }
 
-   // Place holder
-   void resetHand(){
-      System.out.println("TODO, Hand class resetHand ");
-      return;
-   }
-   
-   // Place holder 
-   Card playCard() 
+   // Accessor for number of cards
+   public int getNumCards()
    {
-      Card placeHolderTODODelMe = new Card();
-      System.out.println("TODO, Hand class playCard ");
-      return placeHolderTODODelMe;
+      return numCards;
    }
-      
-   // Place holder 
+
+   // Inspect a single card
    Card inspectCard(int k)
    {
       Card placeHolderTODODelMe = new Card();
-      System.out.println("TODO, Hand class inspectCard: " + k);
+      System.out.println("TODO, Hand class inspectCard ");
       return placeHolderTODODelMe;
    }
 
