@@ -62,6 +62,7 @@ public class assignment3
       Card cardZeroInspect;
       suitCount=0;
       valueCount=0;
+      System.out.println("\nInit some cards");
       do
       {
          playerHand.takeCard(new Card(cardValues[valueCount++], Card.Suit.values()[suitCount]));
@@ -70,6 +71,8 @@ public class assignment3
             suitCount++;
          }
       }while( suitCount * cardValues.length + valueCount < playerHand.MAX_CARDS-1);
+      
+      System.out.println("\nPlay to MAX_CARDS");
       for(int i =0; i < playerHand.MAX_CARDS;i++)
          cardZeroInspect = playerHand.inspectCard(i);   
       
@@ -82,6 +85,7 @@ public class assignment3
       
       //Deal all the cards in a loop until the deck is empty (dealt directly to the display/screen, not to any Hand objects just yet).  
       //Display each card as it comes off the deck. 
+      System.out.println("\nDeal All Cards in loop");
       Card deltCard = playerDeck.dealCard();
       while(deltCard != null){
          System.out.println(deltCard.toString());
@@ -94,31 +98,77 @@ public class assignment3
       //Shuffle the deck this time, 
       playerDeck.shuffle();
       
-      
       //and re-deal to the screen in a loop again. 
+      System.out.println("\nRe Deal All Cards in loop");
+      deltCard = playerDeck.dealCard();
       while(deltCard != null){
          System.out.println(deltCard.toString());
          deltCard = playerDeck.dealCard();
       };
       
       //Notice that the cards are now coming off in a random order.
-
       //Repeat this double deal, unshuffled, then shuffled, but this time using a single pack deck.
       Deck singlepackDeck = new Deck(1); 
+      singlepackDeck.init(1);
+      System.out.println("\nDeal Single pack in loop");
+      deltCard = singlepackDeck.dealCard();
       while(deltCard != null){
          System.out.println(deltCard.toString());
          deltCard = singlepackDeck.dealCard();
       };
+            
+      //Shuffle the deck this time, 
+      System.out.println("\nDeal Single pack in loop Shuffeled");
       singlepackDeck.init(1);
-      
+      singlepackDeck.shuffle();
+      deltCard = singlepackDeck.dealCard();      
       while(deltCard != null){
          System.out.println(deltCard.toString());
          deltCard = singlepackDeck.dealCard();
       }; 
-      // Integration Demonstration
+      
+      //Phase IV
+      
+      //Ask the user (interactively) to select the number of players (a number from 1 to 10).
+      Scanner keyboard = new Scanner(System.in);
+      int numberOfPlayers = 0;
+      do{
+         System.out.printf("Please enter the number of players (a number from 1 to 10): ");
+         numberOfPlayers = keyboard.nextInt();
+      }while(numberOfPlayers<1 || numberOfPlayers > 10);
+      //validated a legal value, 
+      keyboard.close();
+      
+      Hand[] playersHands = new Hand[numberOfPlayers];
+      // Init players hands
+      for(int x = 0; x<playersHands.length; x++)
+         playersHands[x] = new Hand();
 
+      //instantiate a single-pack Deck object without shuffling, 
+      System.out.println("\nInstantiate a single-pack Deck object without shuffling");
+      singlepackDeck.init(1);
+
+      //deal a deck into that many Hand objects, dealing all cards until the deck is empty.  
+      deltCard = singlepackDeck.dealCard();  
+      int playerCount = 0;
+      while(deltCard != null){
+         System.out.println("DeltCard " + deltCard.toString() + " " + playerCount);
+         playersHands[playerCount++].takeCard(deltCard);
+         deltCard = singlepackDeck.dealCard();
+         if(playerCount == numberOfPlayers )
+            playerCount = 0;
+      }; 
+      
+      //Display all the hands after the deal. 
+      for(int x = 0; x<numberOfPlayers; x++){
+         System.out.println("Player " + x);
+         System.out.println(playersHands[x].toString());
+      }
    }
 }      
+
+/* Phase IV Integration test of Hand and Deck objects
+*/
 
 /*------------------------------------------------------------------------------------ 
  * PHASE I: The Card Class
@@ -187,9 +237,7 @@ class Card
          return false;
       }
    }
-   
-   
-
+ 
    //Accessor that returns a cards value
    public char getValue()
    {
@@ -236,9 +284,6 @@ class Card
       return false;
    }
 }
-
-
-
 
 /********************* OUTPUT CARD CLASS *********************
  
@@ -336,8 +381,6 @@ class Hand
          return myCards[k];
       }
    }
-   
-
 }
 /********************* OUTPUT HAND CLASS *********************
  
