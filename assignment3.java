@@ -141,8 +141,10 @@ public class assignment3
       
       Hand[] playersHands = new Hand[numberOfPlayers];
       // Init players hands
-      for(int x = 0; x<playersHands.length; x++)
+      for(int x = 0; x<playersHands.length; x++){
          playersHands[x] = new Hand();
+         playersHands[x].resetHand();
+      }
 
       //instantiate a single-pack Deck object without shuffling, 
       System.out.println("\nInstantiate a single-pack Deck object without shuffling");
@@ -152,7 +154,6 @@ public class assignment3
       deltCard = singlepackDeck.dealCard();  
       int playerCount = 0;
       while(deltCard != null){
-         System.out.println("DeltCard " + deltCard.toString() + " " + playerCount);
          playersHands[playerCount++].takeCard(deltCard);
          deltCard = singlepackDeck.dealCard();
          if(playerCount == numberOfPlayers )
@@ -164,10 +165,67 @@ public class assignment3
          System.out.println("Player " + x);
          System.out.println(playersHands[x].toString());
       }
+      
+      // Reset hands
+      System.out.println("\nShuffle and deal single-pack Deck");
+      for(int x = 0; x<playersHands.length; x++)
+         playersHands[x].resetHand();
+   
+      singlepackDeck.init(1);
+      singlepackDeck.shuffle();
+      //deal a deck into that many Hand objects, dealing all cards until the deck is empty.  
+      deltCard = singlepackDeck.dealCard();  
+      playerCount = 0;
+      while(deltCard != null){
+         playersHands[playerCount++].takeCard(deltCard);
+         deltCard = singlepackDeck.dealCard();
+         if(playerCount == numberOfPlayers )
+            playerCount = 0;
+      }; 
+
+      //Display all the hands after the deal. 
+      for(int x = 0; x<numberOfPlayers; x++){
+         System.out.println("Player " + x);
+         System.out.println(playersHands[x].toString());
+      }  
    }
 }      
 
-/* Phase IV Integration test of Hand and Deck objects
+/* Phase IV Output, Integration test of Hand and Deck objects
+
+Player 0
+Hand = ( K of spades, 8 of spades, 3 of spades, J of hearts, 6 of hearts, A of hearts, 9 of diamonds, 4 of diamonds, Q of clubs, 7 of clubs, 2 of clubs, )
+
+Player 1
+Hand = ( Q of spades, 7 of spades, 2 of spades, T of hearts, 5 of hearts, K of diamonds, 8 of diamonds, 3 of diamonds, J of clubs, 6 of clubs, A of clubs, )
+
+Player 2
+Hand = ( J of spades, 6 of spades, A of spades, 9 of hearts, 4 of hearts, Q of diamonds, 7 of diamonds, 2 of diamonds, T of clubs, 5 of clubs, )
+
+Player 3
+Hand = ( T of spades, 5 of spades, K of hearts, 8 of hearts, 3 of hearts, J of diamonds, 6 of diamonds, A of diamonds, 9 of clubs, 4 of clubs, )
+
+Player 4
+Hand = ( 9 of spades, 4 of spades, Q of hearts, 7 of hearts, 2 of hearts, T of diamonds, 5 of diamonds, K of clubs, 8 of clubs, 3 of clubs, )
+
+
+Shuffle and deal single-pack Deck
+Player 0
+Hand = ( A of diamonds, A of hearts, J of spades, 7 of spades, 3 of spades, 6 of clubs, 9 of diamonds, 9 of clubs, 4 of clubs, A of clubs, 7 of clubs, )
+
+Player 1
+Hand = ( K of hearts, 8 of clubs, 2 of hearts, 8 of diamonds, 3 of diamonds, J of diamonds, J of hearts, T of clubs, Q of clubs, 5 of diamonds, 6 of diamonds, )
+
+Player 2
+Hand = ( 3 of hearts, J of clubs, K of diamonds, T of spades, 8 of spades, 2 of diamonds, K of clubs, 6 of spades, 2 of spades, Q of diamonds, )
+
+Player 3
+Hand = ( 9 of hearts, 5 of spades, A of spades, 8 of hearts, K of spades, 3 of clubs, 6 of hearts, 5 of hearts, 7 of hearts, 9 of spades, )
+
+Player 4
+Hand = ( T of diamonds, 4 of spades, Q of spades, 4 of diamonds, 7 of diamonds, Q of hearts, 5 of clubs, 2 of clubs, T of hearts, 4 of hearts, )
+
+
 */
 
 /*------------------------------------------------------------------------------------ 
