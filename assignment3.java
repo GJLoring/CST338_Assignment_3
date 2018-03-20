@@ -819,3 +819,434 @@ A of spades
 J of diamonds
  
 ******************** END OUTPUT Deck CLASS *******************/
+
+
+
+/* Cumulative output of entire program
+
+
+Card Class Tests
+
+A of spades
+** illegal **
+J of clubs
+
+** illegal **
+K of clubs
+J of clubs
+Hand = ( K of spades, Q of spades, J of spades, T of spades, 9 of spades, 8 of spades, 7 of spades, 6 of spades, 5 of spades, 4 of spades, 3 of spades, 2 of spades, A of spades, K of hearts, Q of hearts, J of hearts, T of hearts, 9 of hearts, 8 of hearts, 7 of hearts, 6 of hearts, 5 of hearts, 4 of hearts, 3 of hearts, 2 of hearts, A of hearts, K of diamonds, Q of diamonds, J of diamonds, T of diamonds, 9 of diamonds, 8 of diamonds, 7 of diamonds, 6 of diamonds, 5 of diamonds, 4 of diamonds, 3 of diamonds, 2 of diamonds, A of diamonds, K of clubs, Q of clubs, J of clubs, T of clubs, 9 of clubs, 8 of clubs, 7 of clubs, 6 of clubs, 5 of clubs, 4 of clubs, 3 of clubs, 2 of clubs, A of clubs, )
+
+
+Init some cards
+
+Play to MAX_CARDS
+Inspect Valid Card: A of clubs
+Inspect Valid Card: 2 of clubs
+Inspect Valid Card: 3 of clubs
+Inspect Valid Card: 4 of clubs
+Inspect Valid Card: 5 of clubs
+Inspect Valid Card: 6 of clubs
+Inspect Valid Card: 7 of clubs
+Inspect Valid Card: 8 of clubs
+Inspect Valid Card: 9 of clubs
+Inspect Valid Card: T of clubs
+Inspect Valid Card: J of clubs
+Inspect Valid Card: Q of clubs
+Inspect Valid Card: K of clubs
+Inspect Valid Card: A of diamonds
+Inspect Valid Card: 2 of diamonds
+Inspect Valid Card: 3 of diamonds
+Inspect Valid Card: 4 of diamonds
+Inspect Valid Card: 5 of diamonds
+Inspect Valid Card: 6 of diamonds
+Inspect Valid Card: 7 of diamonds
+Inspect Valid Card: 8 of diamonds
+Inspect Valid Card: 9 of diamonds
+Inspect Valid Card: T of diamonds
+Inspect Valid Card: J of diamonds
+Inspect Valid Card: Q of diamonds
+Inspect Valid Card: K of diamonds
+Inspect Valid Card: A of hearts
+Inspect Valid Card: 2 of hearts
+Inspect Valid Card: 3 of hearts
+Inspect Valid Card: 4 of hearts
+Inspect Valid Card: 5 of hearts
+Inspect Valid Card: 6 of hearts
+Inspect Valid Card: 7 of hearts
+Inspect Valid Card: 8 of hearts
+Inspect Valid Card: 9 of hearts
+Inspect Valid Card: T of hearts
+Inspect Valid Card: J of hearts
+Inspect Valid Card: Q of hearts
+Inspect Valid Card: K of hearts
+Inspect Valid Card: A of spades
+Inspect Valid Card: 2 of spades
+Inspect Valid Card: 3 of spades
+Inspect Valid Card: 4 of spades
+Inspect Valid Card: 5 of spades
+Inspect Valid Card: 6 of spades
+Inspect Valid Card: 7 of spades
+Inspect Valid Card: 8 of spades
+Inspect Valid Card: 9 of spades
+Inspect Valid Card: T of spades
+Inspect Valid Card: J of spades
+Inspect Valid Card: Q of spades
+Inspect Valid Card: K of spades
+Inspect InValid Card: ** illegal **
+Playing K of spades
+Play Card: K of spades
+
+Deal All Cards in loop
+K of spades
+Q of spades
+J of spades
+T of spades
+9 of spades
+8 of spades
+7 of spades
+6 of spades
+5 of spades
+4 of spades
+3 of spades
+2 of spades
+A of spades
+K of hearts
+Q of hearts
+J of hearts
+T of hearts
+9 of hearts
+8 of hearts
+7 of hearts
+6 of hearts
+5 of hearts
+4 of hearts
+3 of hearts
+2 of hearts
+A of hearts
+K of diamonds
+Q of diamonds
+J of diamonds
+T of diamonds
+9 of diamonds
+8 of diamonds
+7 of diamonds
+6 of diamonds
+5 of diamonds
+4 of diamonds
+3 of diamonds
+2 of diamonds
+A of diamonds
+K of clubs
+Q of clubs
+J of clubs
+T of clubs
+9 of clubs
+8 of clubs
+7 of clubs
+6 of clubs
+5 of clubs
+4 of clubs
+3 of clubs
+2 of clubs
+A of clubs
+K of spades
+Q of spades
+J of spades
+T of spades
+9 of spades
+8 of spades
+7 of spades
+6 of spades
+5 of spades
+4 of spades
+3 of spades
+2 of spades
+A of spades
+K of hearts
+Q of hearts
+J of hearts
+T of hearts
+9 of hearts
+8 of hearts
+7 of hearts
+6 of hearts
+5 of hearts
+4 of hearts
+3 of hearts
+2 of hearts
+A of hearts
+K of diamonds
+Q of diamonds
+J of diamonds
+T of diamonds
+9 of diamonds
+8 of diamonds
+7 of diamonds
+6 of diamonds
+5 of diamonds
+4 of diamonds
+3 of diamonds
+2 of diamonds
+A of diamonds
+K of clubs
+Q of clubs
+J of clubs
+T of clubs
+9 of clubs
+8 of clubs
+7 of clubs
+6 of clubs
+5 of clubs
+4 of clubs
+3 of clubs
+2 of clubs
+A of clubs
+
+Re Deal All Cards in loop
+5 of spades
+A of diamonds
+5 of clubs
+A of hearts
+5 of spades
+K of hearts
+9 of spades
+2 of diamonds
+9 of hearts
+6 of clubs
+4 of spades
+K of diamonds
+8 of diamonds
+A of hearts
+6 of diamonds
+2 of diamonds
+6 of spades
+T of diamonds
+A of clubs
+K of spades
+3 of clubs
+5 of diamonds
+9 of clubs
+7 of spades
+7 of hearts
+J of diamonds
+9 of diamonds
+5 of hearts
+4 of hearts
+4 of diamonds
+7 of diamonds
+J of clubs
+6 of hearts
+6 of spades
+J of hearts
+5 of diamonds
+T of spades
+6 of clubs
+J of diamonds
+4 of hearts
+4 of diamonds
+T of diamonds
+T of clubs
+9 of clubs
+9 of spades
+A of spades
+A of spades
+9 of hearts
+5 of clubs
+Q of hearts
+8 of clubs
+J of hearts
+K of diamonds
+5 of hearts
+2 of spades
+2 of hearts
+Q of diamonds
+K of clubs
+T of clubs
+3 of hearts
+Q of clubs
+6 of diamonds
+9 of diamonds
+7 of hearts
+K of spades
+3 of clubs
+8 of hearts
+3 of spades
+J of clubs
+6 of hearts
+J of spades
+T of hearts
+3 of diamonds
+3 of spades
+8 of spades
+A of diamonds
+4 of spades
+Q of spades
+7 of clubs
+7 of diamonds
+3 of diamonds
+2 of spades
+8 of spades
+3 of hearts
+2 of clubs
+Q of spades
+8 of clubs
+T of spades
+8 of hearts
+K of clubs
+4 of clubs
+Q of clubs
+K of hearts
+2 of hearts
+Q of hearts
+7 of spades
+7 of clubs
+T of hearts
+J of spades
+2 of clubs
+4 of clubs
+A of clubs
+Q of diamonds
+8 of diamonds
+
+Deal Single pack in loop
+K of spades
+Q of spades
+J of spades
+T of spades
+9 of spades
+8 of spades
+7 of spades
+6 of spades
+5 of spades
+4 of spades
+3 of spades
+2 of spades
+A of spades
+K of hearts
+Q of hearts
+J of hearts
+T of hearts
+9 of hearts
+8 of hearts
+7 of hearts
+6 of hearts
+5 of hearts
+4 of hearts
+3 of hearts
+2 of hearts
+A of hearts
+K of diamonds
+Q of diamonds
+J of diamonds
+T of diamonds
+9 of diamonds
+8 of diamonds
+7 of diamonds
+6 of diamonds
+5 of diamonds
+4 of diamonds
+3 of diamonds
+2 of diamonds
+A of diamonds
+K of clubs
+Q of clubs
+J of clubs
+T of clubs
+9 of clubs
+8 of clubs
+7 of clubs
+6 of clubs
+5 of clubs
+4 of clubs
+3 of clubs
+2 of clubs
+A of clubs
+
+Deal Single pack in loop Shuffeled
+T of clubs
+4 of clubs
+J of hearts
+K of hearts
+8 of spades
+Q of diamonds
+A of clubs
+3 of diamonds
+6 of diamonds
+2 of clubs
+T of spades
+2 of spades
+8 of diamonds
+7 of hearts
+T of hearts
+9 of spades
+T of diamonds
+5 of diamonds
+9 of clubs
+3 of hearts
+Q of hearts
+K of diamonds
+7 of diamonds
+2 of hearts
+5 of clubs
+9 of diamonds
+Q of spades
+J of spades
+3 of spades
+5 of spades
+K of clubs
+3 of clubs
+Q of clubs
+6 of spades
+A of hearts
+7 of spades
+5 of hearts
+A of diamonds
+2 of diamonds
+J of clubs
+8 of hearts
+6 of hearts
+4 of hearts
+4 of diamonds
+J of diamonds
+8 of clubs
+7 of clubs
+6 of clubs
+A of spades
+K of spades
+9 of hearts
+4 of spades
+Please enter the number of players (a number from 1 to 10): 5
+
+Instantiate a single-pack Deck object without shuffling
+Player 0
+Hand = ( K of spades, 8 of spades, 3 of spades, J of hearts, 6 of hearts, A of hearts, 9 of diamonds, 4 of diamonds, Q of clubs, 7 of clubs, 2 of clubs, )
+
+Player 1
+Hand = ( Q of spades, 7 of spades, 2 of spades, T of hearts, 5 of hearts, K of diamonds, 8 of diamonds, 3 of diamonds, J of clubs, 6 of clubs, A of clubs, )
+
+Player 2
+Hand = ( J of spades, 6 of spades, A of spades, 9 of hearts, 4 of hearts, Q of diamonds, 7 of diamonds, 2 of diamonds, T of clubs, 5 of clubs, )
+
+Player 3
+Hand = ( T of spades, 5 of spades, K of hearts, 8 of hearts, 3 of hearts, J of diamonds, 6 of diamonds, A of diamonds, 9 of clubs, 4 of clubs, )
+
+Player 4
+Hand = ( 9 of spades, 4 of spades, Q of hearts, 7 of hearts, 2 of hearts, T of diamonds, 5 of diamonds, K of clubs, 8 of clubs, 3 of clubs, )
+
+
+Shuffle and deal single-pack Deck
+Player 0
+Hand = ( 8 of diamonds, 9 of diamonds, 7 of spades, 6 of diamonds, A of spades, Q of spades, 6 of hearts, 8 of hearts, K of clubs, 5 of spades, J of hearts, )
+
+Player 1
+Hand = ( Q of hearts, Q of diamonds, 9 of clubs, J of clubs, J of diamonds, 9 of hearts, 5 of hearts, 9 of spades, A of clubs, 2 of hearts, 2 of spades, )
+
+Player 2
+Hand = ( 4 of clubs, T of hearts, K of spades, 5 of diamonds, 5 of clubs, 3 of clubs, 8 of spades, T of spades, 4 of spades, 2 of clubs, )
+
+Player 3
+Hand = ( T of clubs, T of diamonds, A of hearts, K of diamonds, 8 of clubs, J of spades, 3 of spades, 3 of hearts, Q of clubs, 7 of clubs, )
+
+Player 4
+Hand = ( 7 of diamonds, 4 of hearts, K of hearts, 6 of spades, 7 of hearts, A of diamonds, 2 of diamonds, 3 of diamonds, 6 of clubs, 4 of diamonds, )
+*/
