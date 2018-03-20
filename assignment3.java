@@ -70,11 +70,17 @@ public class assignment3
             valueCount = 0;
             suitCount++;
          }
-      }while( suitCount * cardValues.length + valueCount < playerHand.MAX_CARDS-1);
-      
+      }while( suitCount * cardValues.length + valueCount < playerHand.MAX_CARDS);
+
       System.out.println("\nPlay to MAX_CARDS");
-      for(int i =0; i < playerHand.MAX_CARDS;i++)
-         cardZeroInspect = playerHand.inspectCard(i);   
+      for(int i =0; i < playerHand.MAX_CARDS;i++){
+         //Inspect Valid Card
+         cardZeroInspect = playerHand.inspectCard(i);
+         System.out.println("Inspect Valid Card: " + cardZeroInspect.toString());   
+      }   
+      //Inspect Invalid Card
+      cardZeroInspect = playerHand.inspectCard(playerHand.MAX_CARDS);
+      System.out.println("Inspect InValid Card: " + cardZeroInspect.toString());  
       
       // Play a card   
       Card cardZeroPlay = playerHand.playCard();
@@ -425,10 +431,10 @@ class Hand
       return numCards;
    }
 
-   // Inspect a single card (Need help with this method)
+   // Inspect a single card
    Card inspectCard(int k)
    {
-      if(k > numCards)
+      if(k >= numCards)
       {
          Card x = new Card();
          x.set('F', Card.Suit.clubs);
